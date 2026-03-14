@@ -6,6 +6,5 @@ public class Application {
         //call simulate method
         moon.simulate();
 
-
     }
 }
