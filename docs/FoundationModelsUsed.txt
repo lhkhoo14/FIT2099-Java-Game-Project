@@ -1,0 +1,15 @@
+Foundation Models Used Acknowledgement
+
+Model Used: ChatGPT (GPT-4)
+
+Date of Use: March 14, 2026
+
+Purpose:
+-Used to gain more understanding about implementation
+-used to understand how attributes, for loops, constructors etc work in Java
+-Helped checking codes
+
+Sections used:
+-Item.java: assisted with subclasses and public constructors
+-Backpack.java: creating array to store items
+-CrewMember.java: assisted with the for loop
