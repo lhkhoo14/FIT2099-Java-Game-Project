@@ -1,10 +1,12 @@
-import java.util.concurrent.locks.Lock;
+import java.util.ArrayList;
 
 public class Moon {
     private CrewMember crewMember;
+    private ArrayList<Item> items;
 
     public Moon() {
         this.crewMember = new CrewMember();
+        this.items = new ArrayList<>();
     }
 
     public void simulate(){

@@ -12,10 +12,12 @@ public class Item {
         this.weight = weight;
     }
 
+    public String getSimpleName() {return this.getClass().getSimpleName(); }
+
     @Override
     public String toString() {
         //Print out the item  brand and weight
-        return this.getClass().getSimpleName() + ", Brand : " + this.brand + ", weight : " + this.weight + "g";
+        return this.getSimpleName() + ", Brand : " + this.brand + ", weight : " + this.weight + "g";
     }
 }
 

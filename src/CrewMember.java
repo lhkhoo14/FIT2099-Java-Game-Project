@@ -1,19 +1,24 @@
+import java.util.List;
+import java.util.ArrayList;
+
 public class CrewMember {
     private String name;
     private Backpack backpack;
+    private int energy;
 
     public CrewMember() {
         this.name = "Steve";
         this.backpack = new Backpack();
+        this.energy = 30;
     }
 
     public void checkAllItems() {
         //gets array of items from backpack
-        Item[] items = backpack.getItems();
+        List<Item> items = backpack.getItems();
         System.out.println("Crew Member " + name + "'s Backpack contains :");
 
-        for (int i = 0;i < items.length; i++) {
-            System.out.println(items[i]);
+        for (int i = 0;i < items.size(); i++) {
+            System.out.println(items.get(i));
         }
     }
 

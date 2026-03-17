@@ -1,8 +1,11 @@
+import java.util.List;
+import java.util.ArrayList;
+
 public class Backpack {
-    private Item[] items;
+    private List<Item> items;
 
     public Backpack() {
-        items = new Item[4];
+        items = new ArrayList<>();
 
         //Setting up values for each item
         Bottle bottle = new Bottle();
@@ -23,14 +26,14 @@ public class Backpack {
         sterilisationBox.weight = 1000;
 
         //Storing items into items array
-        items[0] = bottle;
-        items[1] = flashlight;
-        items[2] = lockpick;
-        items[3] = sterilisationBox;
+        items.add(bottle);
+        items.add(flashlight);
+        items.add(lockpick);
+        items.add(sterilisationBox);
     }
 
     //Getter for CrewMember to access items
-    public Item[] getItems() {
+    public List<Item> getItems() {
         return items;
     }
 }
