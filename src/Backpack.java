@@ -8,22 +8,13 @@ public class Backpack {
         items = new ArrayList<>();
 
         //Setting up values for each item
-        Bottle bottle = new Bottle();
-        bottle.brand = "Aquafin";
-        bottle.weight = 200;
-        bottle.capacity = 1.5;
+        Bottle bottle = new Bottle("Aquafin",200, 1.5);
 
-        FlashLight flashlight = new FlashLight();
-        flashlight.brand = "Sony";
-        flashlight.weight = 500;
+        FlashLight flashlight = new FlashLight("Sony", 500);
 
-        Lockpick lockpick = new Lockpick();
-        lockpick.brand = "lock";
-        lockpick.weight = 100;
+        Lockpick lockpick = new Lockpick("lock", 100);
 
-        SterilisationBox sterilisationBox = new SterilisationBox();
-        sterilisationBox.brand = "pharmaeng";
-        sterilisationBox.weight = 1000;
+        SterilisationBox sterilisationBox = new SterilisationBox("pharmaeng", 1000);
 
         //Storing items into items array
         items.add(bottle);

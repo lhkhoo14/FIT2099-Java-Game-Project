@@ -8,12 +8,12 @@ public class PackAction extends Action{
     }
 
     @Override
-    String execute(CrewMember crewMember, Moon moon) {
+    public String execute(CrewMember crewMember, Moon moon) {
         return this.item.getSimpleName() + "can not be packed as it will exceed the backpack limit";
     }
 
     @Override
-    String menuDescription(CrewMember crewMember) {
+    public String menuDescription(CrewMember crewMember) {
         return crewMember + "will pack" + this.item.getSimpleName() + "to the backpack";
     }
 }

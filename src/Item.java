@@ -24,14 +24,32 @@ public class Item {
 class Bottle extends Item {
     double capacity; //Litres stored
 
+    public Bottle(String brand,int weight, double capacity) {
+        super(brand, weight);
+        this.capacity = capacity;
+    }
+
+
     @Override
     public String toString() {
         return super.toString() + " , capacity: " + capacity + " L";
     }
 }
 
-class FlashLight extends Item {}
+class FlashLight extends Item {
+    public FlashLight(String brand,int weight) {
+        super(brand, weight);
+    }
+}
 
-class Lockpick extends Item {}
+class Lockpick extends Item {
+    public Lockpick(String brand,int weight) {
+        super(brand, weight);
+    }
+}
 
-class SterilisationBox extends Item {}
+class SterilisationBox extends Item {
+    public SterilisationBox(String brand,int weight) {
+        super(brand, weight);
+    }
+}
