@@ -8,6 +8,8 @@ public class Moon {
     public Moon() {
         this.crewMember = new CrewMember();
         this.items = new ArrayList<>();
+
+        //Setting up values
         items.add(new Bottle("Aquafin", 0.5, 1.5));
         items.add(new SterilisationBox("pharmaeng", 5));
     }
@@ -36,6 +38,7 @@ public class Moon {
     }
 
     public void simulate() {
+        //while loop of five iterations
         int iterations = 5;  // number of times to run simulation
 
         while (iterations > 0) {

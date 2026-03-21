@@ -27,7 +27,7 @@ public class Backpack {
     }
     public boolean add(Item item){
         double estimatedweight = this.currentWeight + item.getWeight();
-        if (estimatedweight > weightLimit){
+        if (estimatedweight > weightLimit){ //check if backpack will exceed limit after adding item
             return false;
         }
         this.items.add(item);

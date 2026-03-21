@@ -17,6 +17,7 @@ public class Item {
     public double getWeight(){
         return weight;
     }
+
     public Action getPackAction() {return new PackAction(this);}
 
     public Action getUnpackAction() {return new UnpackAction(this);}
