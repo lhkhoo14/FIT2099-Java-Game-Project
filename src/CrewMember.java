@@ -22,8 +22,22 @@ public class CrewMember {
         }
     }
 
+    public List<Action> allowableActions(){
+        List<Action> actions = new ArrayList<>();
+        actions = backpack.allowableActions(); //call the backpack's allowable actions
+        return actions;
+    }
+
     //Getter for Moon.java to access the backpack
     public Backpack getBackpack() {
         return backpack;
+    }
+    //Getter to access crewMember name
+    public String getName(){
+        return name;
+    }
+    //Getter to access energy
+    public int getEnergy(){
+        return energy;
     }
 }
