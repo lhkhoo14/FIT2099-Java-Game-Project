@@ -9,11 +9,17 @@ public class PackAction extends Action{
 
     @Override
     public String execute(CrewMember crewMember, Moon moon) {
-        return this.item.getSimpleName() + "can not be packed as it will exceed the backpack limit";
+        Backpack backpack = crewMember.getBackpack();
+
+        if (backpack.add(this.item)) {
+            moon.removeItem(this.item);
+            return crewMember.getName() + " packed " + this.item.getSimpleName() + " to the backpack";
+        }
+        return this.item.getSimpleName() + " can not be packed as it will exceed the backpack limit";
     }
 
     @Override
     public String menuDescription(CrewMember crewMember) {
-        return crewMember + "will pack" + this.item.getSimpleName() + "to the backpack";
+        return crewMember.getName() + " (Energy Level:" + crewMember.getEnergy() + ") will pack " + this.item.getSimpleName() + " to the backpack";
     }
 }
