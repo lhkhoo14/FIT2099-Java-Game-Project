@@ -1,3 +1,6 @@
+package items;
+import actions.*;
+
 /**
  * Implements Item class
  * creates Item object with brand and weight attributes
@@ -60,51 +63,5 @@ public class Item {
                 this.getSimpleName(),
                 this.brand,
                 this.weight);
-    }
-}
-
-/**
- * Implements the bottle subclass
- * create Bottle object with super class attributes with addition of capacity
- * Override toString method to output capacity as well
- */
-class Bottle extends Item {
-    double capacity; //Litres stored
-
-    public Bottle(String brand,double weight, double capacity) {
-        super(brand, weight);
-        this.capacity = capacity;
-    }
-
-    @Override
-    public String toString() {
-        return super.toString() + " , capacity: " + capacity + " L";
-    }
-}
-
-/**
- * Implement FlashLight subclass
- */
-class FlashLight extends Item {
-    public FlashLight(String brand,double weight) {
-        super(brand, weight);
-    }
-}
-
-/**
- * Implement Lockpick subclass
- */
-class Lockpick extends Item {
-    public Lockpick(String brand,double weight) {
-        super(brand, weight);
-    }
-}
-
-/**
- * Implement SterilisationBox subclass
- */
-class SterilisationBox extends Item {
-    public SterilisationBox(String brand,double weight) {
-        super(brand, weight);
     }
 }

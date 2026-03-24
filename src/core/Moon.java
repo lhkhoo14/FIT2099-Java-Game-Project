@@ -1,5 +1,8 @@
+package core;
 import java.util.ArrayList;
 import java.util.List;
+import items.*;
+import actions.*;
 
 /**
  * Represents the moon in the simulation

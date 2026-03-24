@@ -1,7 +1,9 @@
+package core;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import actions.*;
 
 /**
  * Implements a menu showing all allowable actions for the CrewMember to execute

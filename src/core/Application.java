@@ -1,3 +1,4 @@
+package core;
 /**
  * Implement the Application class
  * Creates Moon object to run the simulation

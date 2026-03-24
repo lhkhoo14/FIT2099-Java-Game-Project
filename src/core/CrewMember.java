@@ -1,5 +1,8 @@
+package core;
 import java.util.List;
 import java.util.ArrayList;
+import actions.*;
+import items.*;
 
 /**
  * Implement CrewMember class

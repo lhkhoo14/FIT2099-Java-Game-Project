@@ -1,5 +1,8 @@
+package core;
 import java.util.List;
 import java.util.ArrayList;
+import items.*;
+import actions.*;
 
 /**
  * Implements Backpack class

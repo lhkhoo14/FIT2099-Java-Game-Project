@@ -1,3 +1,6 @@
+package actions;
+import items.*;
+import core.*;
 /**
  * Implements the PackAction subclass
  * creates a PackAction object with item attribute
