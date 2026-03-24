@@ -1,17 +1,27 @@
 import java.util.List;
 import java.util.ArrayList;
 
+/**
+ * Implement CrewMember class
+ * Represents a crew member in the simulation with a name, backpack, and initial energy
+ */
 public class CrewMember {
     private String name;
     private Backpack backpack;
     private int energy;
 
+    /**
+     * Creates a CrewMember object with the name "Steve", a Backpack and its initial energy at 30
+     */
     public CrewMember() {
         this.name = "Steve";
         this.backpack = new Backpack();
         this.energy = 30;
     }
 
+    /**
+     * prints all items inside the backpack to the console
+     */
     public void checkAllItems() {
         //gets array of items from backpack
         List<Item> items = backpack.getItems();
@@ -22,21 +32,36 @@ public class CrewMember {
         }
     }
 
+    /**
+     * Returns a list of allowable actions from Backpack by calling backpack.allowableActions()
+     * @return actions - ArrayList containing the actions called from backpack
+     */
     public List<Action> allowableActions(){
         List<Action> actions = new ArrayList<>();
         actions = backpack.allowableActions(); //call the backpack's allowable actions
         return actions;
     }
 
-    //Getter for Moon.java to access the backpack
+    /**
+     * Return the CrewMember's Backpack
+     * @return backpack - CrewMember Backpack attribute
+     */
     public Backpack getBackpack() {
         return backpack;
     }
-    //Getter to access crewMember name
+
+    /**
+     * Return the name of the CrewMember
+     * @return name - CrewMember String attribute
+     */
     public String getName(){
         return name;
     }
-    //Getter to access energy
+
+    /**
+     * Return the current energy of the CrewMember
+     * @return energy - CrewMember energy attribute
+     */
     public int getEnergy(){
         return energy;
     }

@@ -1,11 +1,20 @@
 import java.util.List;
 import java.util.ArrayList;
 
+/**
+ * Implements Backpack class
+ * Represents a Backpack that stores Items for CrewMember
+ * The Backpack has a weight limit and items can be added or removed
+ */
 public class Backpack {
     private List<Item> items;
     private int weightLimit = 10; //in kg
     private int currentWeight; //Current weight of backpack
 
+    /**
+     * public constructor for Backpack object
+     * Set current weight at 0 and initializes it with default items
+     */
     public Backpack() {
         this.currentWeight = 0;
         items = new ArrayList<>();
@@ -25,6 +34,12 @@ public class Backpack {
         add(lockpick);
         add(sterilisationBox);
     }
+
+    /**
+     * Adds item to Backpack if it doesn't exceed the weight limit
+     * @param item Item object being added
+     * @return a boolean regarding whether the action is successful or not
+     */
     public boolean add(Item item){
         double estimatedweight = this.currentWeight + item.getWeight();
         if (estimatedweight > weightLimit){ //check if backpack will exceed limit after adding item
@@ -35,6 +50,11 @@ public class Backpack {
         return true;
     }
 
+    /**
+     * Removes item from Backpack onto the Moon if it exists
+     * @param item Item object being removed
+     * @return a boolean regarding whether it is successful or not
+     */
     public boolean removeItem(Item item){
         if (items.remove(item)) {
             currentWeight -= item.getWeight();
@@ -43,6 +63,10 @@ public class Backpack {
         return false;
     }
 
+    /**
+     * returns a list of allowable unpack actions for each item in the Backpack
+     * @return actions - ArrayList of UnpackAction of each item
+     */
     public List<Action> allowableActions(){
         List<Action> actions = new ArrayList<>();
         for (Item item: this.getItems()) {
@@ -51,11 +75,20 @@ public class Backpack {
         return actions;
     }
 
-    //Getter for CrewMember to access items
+    /**
+     * Getter for CrewMember to access items
+     * Returns the list of items currently in Backpack
+     * @return items - the Backpack items attribute
+     */
     public List<Item> getItems() {
         return items;
     }
-    //Getter to get backpack current weight
+
+    /**
+     * Getter to get Backpack current weight
+     * Returns the current weight of Backpack
+     * @return currentWeight - the Backpack currentWeight attribute
+     */
     public int getCurrentWeight() {
         return currentWeight;
     }
