@@ -55,6 +55,14 @@ public class CrewMember implements ActionCapable {
         return false;
     }
 
+    public void increaseEnergyLevelBy(int INCREASED_ENERGY_VALUE) {
+        this.energy += INCREASED_ENERGY_VALUE;
+    }
+
+    public void unpack(Item item) {
+        backpack.removeItem(item);
+    }
+
     /**
      * Return the CrewMember's Backpack
      * @return backpack - CrewMember Backpack attribute

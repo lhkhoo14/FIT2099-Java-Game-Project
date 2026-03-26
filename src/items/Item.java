@@ -1,7 +1,6 @@
 package items;
 import actions.*;
 import core.Ability;
-import core.ActionCapable;
 import core.CrewMember;
 
 import java.util.ArrayList;

@@ -1,5 +1,5 @@
-package core;
-import actions.Action;
+package actions;
+import core.*;
 
 import java.util.List;
 

@@ -20,8 +20,8 @@ public class Moon implements ActionCapable {
         this.items = new ArrayList<>();
 
         //Setting up values
-        items.add(new Bottle("Aquafin", 0.5, 1.5));
-        items.add(new SterilisationBox("pharmaeng", 5));
+        items.add(new NutCan("IGA"));
+        items.add(new TortillaPack("Coles"));
     }
 
     /**
@@ -70,7 +70,7 @@ public class Moon implements ActionCapable {
      */
     public void simulate() {
         //while loop of five iterations
-        int iterations = 5;
+        int iterations = 8;
 
         while (iterations > 0) {
             List<Action> actions = new ArrayList<>();

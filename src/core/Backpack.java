@@ -23,7 +23,7 @@ public class Backpack implements ActionCapable {
         items = new ArrayList<>();
 
         //Setting up values for each item
-        Bottle bottle = new Bottle("Aquafin", 0.5, 1.5);
+        Bottle bottle = new Bottle("Aquafin", 0.5);
 
         FlashLight flashlight = new FlashLight("Sony", 1);
 
@@ -78,6 +78,7 @@ public class Backpack implements ActionCapable {
         List<Action> actions = new ArrayList<>();
         for (Item item : this.getItems()) {
             actions.add(item.getUnpackAction());
+            actions.addAll(item.allowableActions(crewMember));
         }
         return actions;
     }
