@@ -8,7 +8,7 @@ import actions.*;
  * Represents the moon in the simulation
  * Contains scattered items on the surface that the crew member can pack
  */
-public class Moon {
+public class Moon implements ActionCapable {
     private CrewMember crewMember;
     private ArrayList<Item> items;
 
@@ -54,7 +54,8 @@ public class Moon {
      * Return an ArrayList of allowable pack actions of each item on the moon
      * @return actions - ArrayList containing PackAction object of each item on the moon
      */
-    public List<Action> allowableActions(){
+    @Override
+    public List<Action> allowableActions(CrewMember crewMember){
         List<Action> actions = new ArrayList<>();
         for (Item item: this.items) {
             actions.add(item.getPackAction());
@@ -73,8 +74,8 @@ public class Moon {
 
         while (iterations > 0) {
             List<Action> actions = new ArrayList<>();
-            actions.addAll(this.allowableActions());
-            actions.addAll(crewMember.allowableActions());
+            actions.addAll(this.allowableActions(crewMember));
+            actions.addAll(crewMember.allowableActions(crewMember));
 
             System.out.println("########################################");
 

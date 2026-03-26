@@ -9,7 +9,7 @@ import actions.*;
  * Represents a Backpack that stores Items for CrewMember
  * The Backpack has a weight limit and items can be added or removed
  */
-public class Backpack {
+public class Backpack implements ActionCapable {
     private List<Item> items;
     private int weightLimit = 10; //in kg
     private int currentWeight; //Current weight of backpack
@@ -23,7 +23,7 @@ public class Backpack {
         items = new ArrayList<>();
 
         //Setting up values for each item
-        Bottle bottle = new Bottle("Aquafin",0.5, 1.5);
+        Bottle bottle = new Bottle("Aquafin", 0.5, 1.5);
 
         FlashLight flashlight = new FlashLight("Sony", 1);
 
@@ -40,12 +40,13 @@ public class Backpack {
 
     /**
      * Adds item to Backpack if it doesn't exceed the weight limit
+     *
      * @param item Item object being added
      * @return a boolean regarding whether the action is successful or not
      */
-    public boolean add(Item item){
+    public boolean add(Item item) {
         double estimatedweight = this.currentWeight + item.getWeight();
-        if (estimatedweight > weightLimit){ //check if backpack will exceed limit after adding item
+        if (estimatedweight > weightLimit) { //check if backpack will exceed limit after adding item
             return false;
         }
         this.items.add(item);
@@ -55,10 +56,11 @@ public class Backpack {
 
     /**
      * Removes item from Backpack onto the Moon if it exists
+     *
      * @param item Item object being removed
      * @return a boolean regarding whether it is successful or not
      */
-    public boolean removeItem(Item item){
+    public boolean removeItem(Item item) {
         if (items.remove(item)) {
             currentWeight -= item.getWeight();
             return true;
@@ -68,11 +70,13 @@ public class Backpack {
 
     /**
      * returns a list of allowable unpack actions for each item in the Backpack
+     *
      * @return actions - ArrayList of UnpackAction of each item
      */
-    public List<Action> allowableActions(){
+    @Override
+    public List<Action> allowableActions(CrewMember crewMember) {
         List<Action> actions = new ArrayList<>();
-        for (Item item: this.getItems()) {
+        for (Item item : this.getItems()) {
             actions.add(item.getUnpackAction());
         }
         return actions;
@@ -81,6 +85,7 @@ public class Backpack {
     /**
      * Getter for CrewMember to access items
      * Returns the list of items currently in Backpack
+     *
      * @return items - the Backpack items attribute
      */
     public List<Item> getItems() {
@@ -90,6 +95,7 @@ public class Backpack {
     /**
      * Getter to get Backpack current weight
      * Returns the current weight of Backpack
+     *
      * @return currentWeight - the Backpack currentWeight attribute
      */
     public int getCurrentWeight() {

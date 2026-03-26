@@ -8,7 +8,7 @@ import items.*;
  * Implement CrewMember class
  * Represents a crew member in the simulation with a name, backpack, and initial energy
  */
-public class CrewMember {
+public class CrewMember implements ActionCapable {
     private String name;
     private Backpack backpack;
     private int energy;
@@ -39,9 +39,10 @@ public class CrewMember {
      * Returns a list of allowable actions from Backpack by calling backpack.allowableActions()
      * @return actions - ArrayList containing the actions called from backpack
      */
-    public List<Action> allowableActions(){
+    @Override
+    public List<Action> allowableActions(CrewMember crewMember){
         List<Action> actions = new ArrayList<>();
-        actions = backpack.allowableActions(); //call the backpack's allowable actions
+        actions = backpack.allowableActions(crewMember); //call the backpack's allowable actions
         return actions;
     }
 

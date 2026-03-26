@@ -1,12 +1,17 @@
 package items;
 import actions.*;
+import core.ActionCapable;
+import core.CrewMember;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Implements Item class
  * creates Item object with brand and weight attributes
  * Parent class for FlashLight, Lockpick, Bottle, SterilisationBox
  */
-public class Item {
+public class Item implements ActionCapable {
     String brand;  //
     double weight; //item weight in grams
 
@@ -63,5 +68,11 @@ public class Item {
                 this.getSimpleName(),
                 this.brand,
                 this.weight);
+    }
+
+    @Override
+    public List<Action> allowableActions(CrewMember crewMember){
+        List<Action> actions = new ArrayList<>();
+        return actions;
     }
 }
