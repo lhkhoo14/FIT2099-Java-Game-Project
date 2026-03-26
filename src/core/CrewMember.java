@@ -46,6 +46,15 @@ public class CrewMember implements ActionCapable {
         return actions;
     }
 
+    public boolean hasCapability(Ability capability) {
+        for (Item item: backpack.getItems()) {
+            if (item.hasCapability(capability)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     /**
      * Return the CrewMember's Backpack
      * @return backpack - CrewMember Backpack attribute

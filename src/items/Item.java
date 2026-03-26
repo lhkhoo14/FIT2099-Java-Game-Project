@@ -1,10 +1,13 @@
 package items;
 import actions.*;
+import core.Ability;
 import core.ActionCapable;
 import core.CrewMember;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Implements Item class
@@ -14,6 +17,7 @@ import java.util.List;
 public class Item implements ActionCapable {
     String brand;  //
     double weight; //item weight in grams
+    private Set<Ability> statuses = new HashSet<>();
 
     /**
      * default constructor for item object
@@ -57,6 +61,12 @@ public class Item implements ActionCapable {
      * @return PackAction object for this item
      */
     public Action getUnpackAction() {return new UnpackAction(this);}
+
+    public void addCapability(Ability capability) { this.statuses.add(capability) ;}
+
+    public void removeCapability(Ability capability) { this.statuses.remove(capability) ;}
+
+    public boolean hasCapability(Ability capability) { return this.statuses.contains(capability); }
 
     /**
      * @return String of item information

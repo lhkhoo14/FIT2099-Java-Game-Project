@@ -84,12 +84,12 @@ public class Backpack implements ActionCapable {
 
     /**
      * Getter for CrewMember to access items
-     * Returns the list of items currently in Backpack
-     *
+     * Returns a copy of the list of items currently in Backpack
+     * Uses defensive copying
      * @return items - the Backpack items attribute
      */
     public List<Item> getItems() {
-        return items;
+        return new ArrayList<>(items);
     }
 
     /**
