@@ -61,14 +61,28 @@ public class Item implements ActionCapable {
      */
     public Action getUnpackAction() {return new UnpackAction(this);}
 
+    /**
+     * Adds capability into item's status attribute
+     * @param capability - the enum constant to be added
+     */
     public void addCapability(Ability capability) { this.statuses.add(capability) ;}
 
+    /**
+     * Removes capability into item's status attribute
+     * @param capability - the enum constant to be removed
+     */
     public void removeCapability(Ability capability) { this.statuses.remove(capability) ;}
 
+    /**
+     * Checks whether this item has a specific capability
+     * @param capability - enum constant to check for
+     * @return true if it contains the capability, false otherwise
+     */
     public boolean hasCapability(Ability capability) { return this.statuses.contains(capability); }
 
     /**
-     * @return String of item information
+     * Returns a string representing the item's name, brand and weight
+     * @return a formatted String showing item's information
      */
     @Override
     public String toString() {
@@ -79,6 +93,11 @@ public class Item implements ActionCapable {
                 this.weight);
     }
 
+    /**
+     * Returns a list of allowable actions that a crew member can perform on this item.
+     * @param crewMember - Crew Member object interacting with this item
+     * @return actions - an ArrayList containing allowable actions on this item
+     */
     @Override
     public List<Action> allowableActions(CrewMember crewMember){
         List<Action> actions = new ArrayList<>();

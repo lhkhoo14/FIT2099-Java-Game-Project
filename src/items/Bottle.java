@@ -17,17 +17,30 @@ public class Bottle extends Item implements Consumable {
     private final int INCREASED_ENERGY_VALUE = 2;
     private final double DRINK_AMOUNT = 0.15;
 
-
+    /**
+     * Represents a bottle in the simulation
+     * @param brand - Bottle attribute
+     * @param weight - Bottle attribute
+     */
     public Bottle(String brand,double weight) {
         super(brand, weight);
         this.capacity = 1;
     }
 
+    /**
+     * Override toString method to show capacity of bottle as well
+     * @return a String that shows the capacity of the bottle
+     */
     @Override
     public String toString() {
         return super.toString() + " , capacity: " + capacity + " L";
     }
 
+    /**
+     * Represents the allowable actions of the bottle
+     * @param crewMember - CrewMember object
+     * @return actions - an ArrayList containing the allowable actions
+     */
     @Override
     public List<Action> allowableActions(CrewMember crewMember) {
         List<Action> actions = new ArrayList<>();
@@ -36,6 +49,11 @@ public class Bottle extends Item implements Consumable {
         return actions;
     }
 
+    /**
+     * Allows the crew member to consume the contents of the bottle
+     * @param crewMember - the crew member consuming the bottle
+     * @return a String showing the results of the action
+     */
     @Override
     public String consumedBy(CrewMember crewMember) {
         if (this.capacity - DRINK_AMOUNT > 0) {

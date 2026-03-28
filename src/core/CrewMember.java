@@ -46,6 +46,11 @@ public class CrewMember implements ActionCapable {
         return actions;
     }
 
+    /**
+     * Checks if the backpack contains item which contains the capability
+     * @param capability - the enumeration constant to be checked
+     * @return true if backpack items contain the capability, false otherwise
+     */
     public boolean hasCapability(Ability capability) {
         for (Item item: backpack.getItems()) {
             if (item.hasCapability(capability)) {
@@ -55,10 +60,18 @@ public class CrewMember implements ActionCapable {
         return false;
     }
 
+    /**
+     * Method to increase crew member energy after consuming items
+     * @param INCREASED_ENERGY_VALUE - the energy level given by the item
+     */
     public void increaseEnergyLevelBy(int INCREASED_ENERGY_VALUE) {
         this.energy += INCREASED_ENERGY_VALUE;
     }
 
+    /**
+     * Method to remove the consumable item after consuming it
+     * @param item - Consumable item to be removed
+     */
     public void unpack(Item item) {
         backpack.removeItem(item);
     }
