@@ -1,11 +1,24 @@
+package core;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import actions.*;
 
+/**
+ * Implements a menu showing all allowable actions for the CrewMember to execute
+ * returns the corresponding Action object that has been selected
+ * Has a static method so it can be called without instantiate a Menu object
+ */
 public class Menu {
-
-    //static method so can be used without instantiating an object
+    /**
+     * a static method that display a menu of allowable actions for CrewMember,
+     * reads user input and returns the corresponding action object
+     * can be executed without a Menu object
+     * @param actions List of Action objects
+     * @param crewMember CrewMember object
+     * @return the Action object selected
+     */
     public static Action showMenu(List<Action> actions, CrewMember crewMember) {
         Scanner scanner = new Scanner(System.in);
         Character startChar = 'a';
