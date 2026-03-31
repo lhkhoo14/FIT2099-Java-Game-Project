@@ -30,7 +30,7 @@ public class ConsumeAction extends Action {
     /**
      * Returns a description of this action to be displayed in the menu
      * @param crewMember - CrewMember Object who's performing the action
-     * @return a String showing the description of the result of the action
+     * @return a String showing the option of the action
      */
     @Override
     public String menuDescription(CrewMember crewMember) {

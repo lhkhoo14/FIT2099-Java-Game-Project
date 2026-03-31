@@ -7,11 +7,15 @@ import items.Item;
 import items.TreasureBox;
 
 /**
- * Implements a ConsumeAction class that allows crew member to consume a consumable item
+ * Implements a UnlockAction class that allows crew member to unlock an unlockable item
  */
 public class UnlockAction extends Action {
     private TreasureBox unlockable;
 
+    /**
+     * Constructs an UnlockAction object with a specific unlockable item
+     * @param unlockable - unlockable item
+     */
     public UnlockAction(TreasureBox unlockable) {
         this.unlockable = unlockable; }
 

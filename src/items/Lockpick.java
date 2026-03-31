@@ -19,6 +19,10 @@ public class Lockpick extends Item {
         this.addCapability(Ability.UNLOCK);
     }
 
+    /**
+     * Override original method to show if the lockpick is broken or usable
+     * @return a String description the lockpick
+     */
     @Override
     public String toString() {
         //Print out the item  brand and weight

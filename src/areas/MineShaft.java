@@ -9,15 +9,26 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Represents the MineShaft area that a crew member can explore
+ */
 public class MineShaft implements Explorable{
     private int stamina_consumption;
     private double discover_chance;
 
+    /**
+     * Constructs a MineShaft area with a specific stamina consumption and discover chance of treasure boxes
+     */
     public MineShaft(){
         this.stamina_consumption = 5;
         this.discover_chance = 0.3;
     }
 
+    /**
+     * Allows the crew member to explore the MineShaft
+     * @param crewMember - crew member in the simulation
+     * @return a String describing the results of the exploration and energy loss
+     */
     @Override
     public String exploredBy(CrewMember crewMember) {
         crewMember.decreaseEnergyLevelBy(stamina_consumption);
@@ -38,6 +49,11 @@ public class MineShaft implements Explorable{
                 " and it decreases the energy level by " + stamina_consumption;
     }
 
+    /**
+     * Returns a list of allowable actions that a crew member can perform in the MineShaft
+     * @param crewMember - crew member in the simulation
+     * @return actions - an ArrayList of the allowable actions that the crew member can perform
+     */
     @Override
     public List<Action> allowableActions(CrewMember crewMember) {
         List<Action> actions = new ArrayList<>();

@@ -89,10 +89,18 @@ public class CrewMember implements ActionCapable {
         backpack.removeItem(item);
     }
 
+    /**
+     * Adds the item to the backpack
+     * @param item - item to be added
+     */
     public void pack(Item item) {
         backpack.add(item);
     }
 
+    /**
+     * Checks if the crew member still has energy left
+     * @return true if crewmember still has energy, false otherwise
+     */
     public boolean isConscious() {
         return this.energy > 0;
     }

@@ -13,10 +13,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.locks.Lock;
 
+/**
+ * Represents a TreasureBox that contains items inside
+ * Can be unlocked with a usable lockpick
+ */
 public class TreasureBox extends Item implements Unlockable {
     private ArrayList<Item> container;
     private String source;
 
+    /**
+     * Constructs a TreasureBox object with different items inside depending on the source area
+     * @param source - the area where the TreasureBox was found
+     */
     public TreasureBox(String  source) {
         this.source = source;
         this.container = new ArrayList<>();
@@ -34,6 +42,11 @@ public class TreasureBox extends Item implements Unlockable {
         }
     }
 
+    /**
+     * Represents the allowable actions of Treasure Box if crew member has a usable lockpick
+     * @param crewMember - Crew Member object interacting with this item
+     * @return actions - an ArrayList containing all the allowable actions
+     */
     @Override
     public List<Action> allowableActions(CrewMember crewMember) {
         List<Action> actions = new ArrayList<>();
@@ -44,6 +57,11 @@ public class TreasureBox extends Item implements Unlockable {
         return actions;
     }
 
+    /**
+     * Represents the unlock action
+     * @param crewMember - crew member in the simulation
+     * @return a String showing the result of the unlock action
+     */
     @Override
     public String unlockedBy(CrewMember crewMember) {
         crewMember.removeCapability(Ability.UNLOCK);
