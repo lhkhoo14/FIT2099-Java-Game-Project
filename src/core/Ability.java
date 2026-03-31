@@ -7,4 +7,6 @@ package core;
  */
 public enum Ability {
     STERILISE,
+    ILLUMINATOR,
+    UNLOCK,
 }

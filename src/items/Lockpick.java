@@ -1,4 +1,7 @@
 package items;
+
+import core.Ability;
+
 /**
  * Implement Lockpick subclass
  */
@@ -10,6 +13,8 @@ public class Lockpick extends Item {
      * @param weight - weight of the lockpick
      */
     public Lockpick(String brand,double weight) {
+
         super(brand, weight);
+        this.addCapability(Ability.UNLOCK);
     }
 }
