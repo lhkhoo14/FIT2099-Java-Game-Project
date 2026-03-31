@@ -68,12 +68,20 @@ public class CrewMember implements ActionCapable {
         this.energy += INCREASED_ENERGY_VALUE;
     }
 
+    public void decreaseEnergyLevelBy(int stamina_consumption){
+        this.energy -= stamina_consumption;
+    }
+
     /**
      * Method to remove the consumable item after consuming it
      * @param item - Consumable item to be removed
      */
     public void unpack(Item item) {
         backpack.removeItem(item);
+    }
+
+    public void pack(Item item) {
+        backpack.add(item);
     }
 
     public boolean isConscious() {

@@ -9,7 +9,6 @@ import core.Moon;
  */
 public class ConsumeAction extends Action {
     private Consumable consumable;
-
     /**
      * Construct a ConsumeAction object with the specific consumable item
      * @param consumable - the item to be consumed
