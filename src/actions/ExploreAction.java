@@ -1,6 +1,6 @@
-package areas;
+package actions;
 
-import actions.Action;
+import areas.Explorable;
 import core.CrewMember;
 import core.Moon;
 

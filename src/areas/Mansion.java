@@ -1,7 +1,8 @@
 package areas;
 
 import actions.Action;
-import actions.UnlockAction;
+import actions.ExploreAction;
+import actions.UnlockRoomAction;
 import core.Ability;
 import core.CrewMember;
 import items.*;
@@ -9,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Mansion implements Explorable{
+public class Mansion implements Explorable {
     private int stamina_consumption;
 
-    public Mansion(){
+    public Mansion() {
         this.stamina_consumption = 6;
     }
 
@@ -43,7 +44,10 @@ public class Mansion implements Explorable{
         List<Action> actions = new ArrayList<>();
 
         actions.add(new ExploreAction(this));
-        actions.add(new UnlockRoomAction(this));
+
+        if (crewMember.hasCapability(Ability.UNLOCK)) {
+            actions.add(new UnlockRoomAction(this));
+        }
         return actions;
     }
 }

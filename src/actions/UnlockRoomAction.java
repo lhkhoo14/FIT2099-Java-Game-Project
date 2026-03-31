@@ -1,7 +1,6 @@
-package areas;
+package actions;
 
-import actions.Action;
-import actions.UnlockAction;
+import areas.Mansion;
 import core.Ability;
 import core.CrewMember;
 import core.Moon;

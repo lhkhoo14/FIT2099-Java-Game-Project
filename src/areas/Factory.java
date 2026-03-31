@@ -1,6 +1,7 @@
 package areas;
 
 import actions.Action;
+import actions.ExploreAction;
 import core.Ability;
 import core.CrewMember;
 import items.*;
