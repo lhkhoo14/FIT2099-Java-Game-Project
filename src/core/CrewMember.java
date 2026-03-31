@@ -60,6 +60,15 @@ public class CrewMember implements ActionCapable {
         return false;
     }
 
+    public void removeCapability(Ability capability) {
+        for (Item item: getBackpack().getItems()) {
+            if (item.hasCapability(capability)) {
+                item.removeCapability(capability);
+                break;
+            }
+        }
+    }
+
     /**
      * Method to increase crew member energy after consuming items
      * @param INCREASED_ENERGY_VALUE - the energy level given by the item
@@ -85,7 +94,6 @@ public class CrewMember implements ActionCapable {
     }
 
     public boolean isConscious() {
-        System.out.println(this.getName() + " has ran out of energy and fainted.");
         return this.energy > 0;
     }
 

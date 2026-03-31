@@ -1,6 +1,7 @@
 package areas;
 
 import actions.Action;
+import actions.UnlockAction;
 import core.Ability;
 import core.CrewMember;
 import items.*;
@@ -27,7 +28,7 @@ public class Mansion implements Explorable{
 
         Random random = new Random();
         if (random.nextDouble() <= discover_chance) {
-            TreasureBox treasureBox = new TreasureBox();
+            TreasureBox treasureBox = new TreasureBox("Mansion");
             crewMember.pack(treasureBox);
             System.out.println("You discovered a TreasureBox and packed it into your backpack!");
         } else {
@@ -42,6 +43,7 @@ public class Mansion implements Explorable{
         List<Action> actions = new ArrayList<>();
 
         actions.add(new ExploreAction(this));
+        actions.add(new UnlockRoomAction(this));
         return actions;
     }
 }

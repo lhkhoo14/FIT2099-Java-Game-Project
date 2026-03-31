@@ -42,6 +42,17 @@ public class UnpackAction extends Action{
      */
     @Override
     public String menuDescription(CrewMember crewMember) {
-        return crewMember.getName() + " (Energy Level:"+ crewMember.getEnergy() + ") will unpack " + this.item.getSimpleName() + " to the moon";
+        if (item.getClass().equals(Lockpick.class)) {
+            if (item.hasCapability(Ability.UNLOCK)) {
+                return crewMember.getName() + " (Energy Level:" + crewMember.getEnergy() + ") will unpack "
+                        + this.item.getSimpleName() + "(usable) to the moon";
+            } else {
+                return crewMember.getName() + " (Energy Level:" + crewMember.getEnergy() + ") will unpack "
+                        + this.item.getSimpleName() + "(broken) to the moon";
+            }
+        } else {
+        return crewMember.getName() + " (Energy Level:"+ crewMember.getEnergy() + ") will unpack "
+                + this.item.getSimpleName() + " to the moon";
+        }
     }
 }

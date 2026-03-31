@@ -103,5 +103,6 @@ public class Moon implements ActionCapable {
             Action action = Menu.showMenu(actions, crewMember);
             System.out.println(action.execute(crewMember, this));
         }
+        System.out.println(crewMember.getName() + " has ran out of energy and fainted.");
     }
 }

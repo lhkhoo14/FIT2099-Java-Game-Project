@@ -27,7 +27,7 @@ public class MineShaft implements Explorable{
 
         Random random = new Random();
         if (random.nextDouble() <= discover_chance) {
-            TreasureBox treasureBox = new TreasureBox();
+            TreasureBox treasureBox = new TreasureBox("MineShaft");
             crewMember.pack(treasureBox);
             System.out.println("You discovered a TreasureBox and packed it into your backpack!");
         } else {
