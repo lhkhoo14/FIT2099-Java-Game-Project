@@ -50,6 +50,8 @@ public class Moon implements ActionCapable {
         }
     }
 
+
+
     /**
      * Return an ArrayList of allowable pack actions of each item on the moon
      * @return actions - ArrayList containing PackAction object of each item on the moon
@@ -69,10 +71,9 @@ public class Moon implements ActionCapable {
      * ,shows a menu of allowable actions and asks for input
      */
     public void simulate() {
-        //while loop of five iterations
-        int iterations = 8;
+        //while loop while crew member is conscious
 
-        while (iterations > 0) {
+        while (crewMember.isConscious()) {
             List<Action> actions = new ArrayList<>();
             actions.addAll(this.allowableActions(crewMember));
             actions.addAll(crewMember.allowableActions(crewMember));
@@ -88,8 +89,6 @@ public class Moon implements ActionCapable {
 
             Action action = Menu.showMenu(actions, crewMember);
             System.out.println(action.execute(crewMember, this));
-
-            iterations--;  // decrease loop counter
         }
     }
 }

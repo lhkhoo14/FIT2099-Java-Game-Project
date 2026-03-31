@@ -76,6 +76,10 @@ public class CrewMember implements ActionCapable {
         backpack.removeItem(item);
     }
 
+    public boolean isConscious() {
+        return this.energy > 0;
+    }
+
     /**
      * Return the CrewMember's Backpack
      * @return backpack - CrewMember Backpack attribute
