@@ -85,6 +85,7 @@ public class CrewMember implements ActionCapable {
     }
 
     public boolean isConscious() {
+        System.out.println(this.getName() + " has ran out of energy and fainted.");
         return this.energy > 0;
     }
 

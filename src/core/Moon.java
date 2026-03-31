@@ -1,6 +1,11 @@
 package core;
 import java.util.ArrayList;
 import java.util.List;
+
+import areas.Explorable;
+import areas.Factory;
+import areas.Mansion;
+import areas.MineShaft;
 import items.*;
 import actions.*;
 
@@ -11,6 +16,7 @@ import actions.*;
 public class Moon implements ActionCapable {
     private CrewMember crewMember;
     private ArrayList<Item> items;
+    private ArrayList<Explorable> areas;
 
     /**
      * Creates Moon object with a CrewMember and ArrayList containing scattered items on the moon
@@ -18,10 +24,14 @@ public class Moon implements ActionCapable {
     public Moon() {
         this.crewMember = new CrewMember();
         this.items = new ArrayList<>();
+        this.areas = new ArrayList<>();
 
         //Setting up values
         items.add(new NutCan("IGA"));
         items.add(new TortillaPack("Coles"));
+        areas.add(new Factory());
+        areas.add(new Mansion());
+        areas.add(new MineShaft());
     }
 
     /**
@@ -61,6 +71,9 @@ public class Moon implements ActionCapable {
         List<Action> actions = new ArrayList<>();
         for (Item item: this.items) {
             actions.add(item.getPackAction());
+        }
+        for (Explorable explorable: this.areas) {
+            actions.addAll(explorable.allowableActions(crewMember));
         }
         return actions;
     }

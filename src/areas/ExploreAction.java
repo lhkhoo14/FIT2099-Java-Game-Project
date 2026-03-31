@@ -13,12 +13,12 @@ public class ExploreAction extends Action {
 
     @Override
     public String execute(CrewMember crewMember, Moon moon) {
-        return "";
+        return explorable.exploredBy(crewMember);
     }
 
     @Override
     public String menuDescription(CrewMember crewMember) {
-        return "";
+        return crewMember.getName() + " will explore the " + explorable.getClass().getSimpleName() ;
     }
 
 }
