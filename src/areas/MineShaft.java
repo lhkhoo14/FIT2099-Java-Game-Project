@@ -11,15 +11,15 @@ import java.util.Random;
  * Represents the MineShaft area that a crew member can explore
  */
 public class MineShaft implements Explorable{
-    private int stamina_consumption;
-    private double discover_chance;
+    private int staminaConsumption;
+    private double discoverChance;
 
     /**
      * Constructs a MineShaft area with a specific stamina consumption and discover chance of treasure boxes
      */
     public MineShaft(){
-        this.stamina_consumption = 5;
-        this.discover_chance = 0.3;
+        this.staminaConsumption = 5;
+        this.discoverChance = 0.3;
     }
 
     /**
@@ -29,14 +29,14 @@ public class MineShaft implements Explorable{
      */
     @Override
     public String exploredBy(CrewMember crewMember) {
-        crewMember.decreaseEnergyLevelBy(stamina_consumption);
+        crewMember.decreaseEnergyLevelBy(staminaConsumption);
         if (crewMember.hasCapability(Ability.STERILISE)) {
             crewMember.pack(new NutCan("IGA"));
             System.out.println("You found a NutCan and packed it into your backpack.");
         }
 
         Random random = new Random();
-        if (random.nextDouble() <= discover_chance) {
+        if (random.nextDouble() <= discoverChance) {
             TreasureBox treasureBox = new TreasureBox("MineShaft");
             crewMember.pack(treasureBox);
             System.out.println("You discovered a TreasureBox and packed it into your backpack!");
@@ -44,7 +44,7 @@ public class MineShaft implements Explorable{
             System.out.println("There is nothing here.");
         }
         return this.getClass().getSimpleName() + " is being explored by " + crewMember.getName() +
-                " and it decreases the energy level by " + stamina_consumption;
+                " and it decreases the energy level by " + staminaConsumption;
     }
 
     /**
