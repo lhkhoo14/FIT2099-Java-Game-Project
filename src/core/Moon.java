@@ -2,10 +2,7 @@ package core;
 import java.util.ArrayList;
 import java.util.List;
 
-import areas.Explorable;
-import areas.Factory;
-import areas.Mansion;
-import areas.MineShaft;
+import areas.*;
 import items.*;
 import actions.*;
 

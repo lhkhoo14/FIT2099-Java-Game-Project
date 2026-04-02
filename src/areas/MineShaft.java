@@ -1,9 +1,7 @@
 package areas;
 
-import actions.Action;
-import actions.ExploreAction;
-import core.Ability;
-import core.CrewMember;
+import actions.*;
+import core.*;
 import items.*;
 import java.util.ArrayList;
 import java.util.List;

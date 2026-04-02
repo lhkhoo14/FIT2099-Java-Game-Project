@@ -71,14 +71,18 @@ public class CrewMember implements ActionCapable {
 
     /**
      * Method to increase crew member energy after consuming items
-     * @param INCREASED_ENERGY_VALUE - the energy level given by the item
+     * @param increasedEnergyLevel - the energy level given by the item
      */
-    public void increaseEnergyLevelBy(int INCREASED_ENERGY_VALUE) {
-        this.energy += INCREASED_ENERGY_VALUE;
+    public void increaseEnergyLevelBy(int increasedEnergyLevel) {
+        this.energy += increasedEnergyLevel;
     }
 
-    public void decreaseEnergyLevelBy(int stamina_consumption){
-        this.energy -= stamina_consumption;
+    /**
+     * Method to decrease crew member energy after performing actions
+     * @param decreasedEnergyLevel
+     */
+    public void decreaseEnergyLevelBy(int decreasedEnergyLevel){
+        this.energy -= decreasedEnergyLevel;
     }
 
     /**

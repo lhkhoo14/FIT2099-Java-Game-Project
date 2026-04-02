@@ -15,13 +15,13 @@ import java.util.Random;
  * Added Feature to unlock room in Mansion
  */
 public class Mansion implements Explorable {
-    private int stamina_consumption;
+    private int staminaConsumption;
 
     /**
      * Constructs a Mansion area with a specific stamina consumption
      */
     public Mansion() {
-        this.stamina_consumption = 6;
+        this.staminaConsumption = 6;
     }
 
     /**
@@ -32,7 +32,7 @@ public class Mansion implements Explorable {
     @Override
     public String exploredBy(CrewMember crewMember) {
         double discover_chance = 0;
-        crewMember.decreaseEnergyLevelBy(stamina_consumption);
+        crewMember.decreaseEnergyLevelBy(staminaConsumption);
         if (crewMember.hasCapability(Ability.UNLOCK)) {
             discover_chance = 1;
         } else {
@@ -48,7 +48,7 @@ public class Mansion implements Explorable {
             System.out.println("There is nothing here.");
         }
         return this.getClass().getSimpleName() + " is being explored by " + crewMember.getName() +
-                " and it decreases the energy level by " + stamina_consumption;
+                " and it decreases the energy level by " + staminaConsumption;
     }
 
     /**

@@ -13,15 +13,15 @@ import java.util.Random;
  * Represents the Factory area that can be explored by the crew member
  */
 public class Factory implements Explorable{
-    private int stamina_consumption;
-    private double discover_chance;
+    private int staminaConsumption;
+    private double discoverChance;
 
     /**
      * Constructs a Factory with specific stamina consumption and discover chance of treasure box
      */
     public Factory(){
-        this.stamina_consumption = 4;
-        this.discover_chance = 0.1;
+        this.staminaConsumption = 4;
+        this.discoverChance = 0.1;
     }
 
     /**
@@ -32,15 +32,15 @@ public class Factory implements Explorable{
      */
     @Override
     public String exploredBy(CrewMember crewMember) {
-        crewMember.decreaseEnergyLevelBy(stamina_consumption);
+        crewMember.decreaseEnergyLevelBy(staminaConsumption);
         if (crewMember.hasCapability(Ability.ILLUMINATOR)) {
-            this.discover_chance = 0.4;
+            this.discoverChance = 0.4;
         } else {
-            this.discover_chance = 0.1;
+            this.discoverChance = 0.1;
         }
 
         Random random = new Random();
-        if (random.nextDouble() <= discover_chance) {
+        if (random.nextDouble() <= discoverChance) {
             TreasureBox treasureBox = new TreasureBox("Factory");
             crewMember.pack(treasureBox);
             System.out.println("You discovered a TreasureBox and packed it into your backpack!");
@@ -48,7 +48,7 @@ public class Factory implements Explorable{
             System.out.println("There is nothing here.");
         }
         return this.getClass().getSimpleName() + " is being explored by " + crewMember.getName() +
-                " and it decreases the energy level by " + stamina_consumption;
+                " and it decreases the energy level by " + staminaConsumption;
     }
 
     /**
