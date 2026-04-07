@@ -31,7 +31,7 @@ public class UnlockRoomAction extends Action {
         crewMember.removeCapability(Ability.UNLOCK);
 
         for (int i = 0 ; i< 3; i++) {
-            TreasureBox treasureBox = new TreasureBox("Mainsion");
+            TreasureBox treasureBox = new TreasureBox("Mansion");
             crewMember.pack(treasureBox);
         }
         return crewMember.getName() + " unlocked the room and found 3 Treasure Boxes!";
