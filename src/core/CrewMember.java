@@ -60,12 +60,29 @@ public class CrewMember implements ActionCapable {
         return false;
     }
 
+    public void removeCapability(Ability capability) {
+        for (Item item: getBackpack().getItems()) {
+            if (item.hasCapability(capability)) {
+                item.removeCapability(capability);
+                break;
+            }
+        }
+    }
+
     /**
      * Method to increase crew member energy after consuming items
-     * @param INCREASED_ENERGY_VALUE - the energy level given by the item
+     * @param increasedEnergyLevel - the energy level given by the item
      */
-    public void increaseEnergyLevelBy(int INCREASED_ENERGY_VALUE) {
-        this.energy += INCREASED_ENERGY_VALUE;
+    public void increaseEnergyLevelBy(int increasedEnergyLevel) {
+        this.energy += increasedEnergyLevel;
+    }
+
+    /**
+     * Method to decrease crew member energy after performing actions
+     * @param decreasedEnergyLevel
+     */
+    public void decreaseEnergyLevelBy(int decreasedEnergyLevel){
+        this.energy -= decreasedEnergyLevel;
     }
 
     /**
@@ -74,6 +91,22 @@ public class CrewMember implements ActionCapable {
      */
     public void unpack(Item item) {
         backpack.removeItem(item);
+    }
+
+    /**
+     * Adds the item to the backpack
+     * @param item - item to be added
+     */
+    public void pack(Item item) {
+        backpack.add(item);
+    }
+
+    /**
+     * Checks if the crew member still has energy left
+     * @return true if crewmember still has energy, false otherwise
+     */
+    public boolean isConscious() {
+        return this.energy > 0;
     }
 
     /**

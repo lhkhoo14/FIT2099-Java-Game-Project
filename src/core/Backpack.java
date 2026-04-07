@@ -90,6 +90,7 @@ public class Backpack implements ActionCapable {
      * @return items - the Backpack items attribute
      */
     public List<Item> getItems() {
+
         return new ArrayList<>(items);
     }
 
@@ -100,6 +101,7 @@ public class Backpack implements ActionCapable {
      * @return currentWeight - the Backpack currentWeight attribute
      */
     public int getCurrentWeight() {
+
         return currentWeight;
     }
 }

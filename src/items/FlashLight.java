@@ -1,4 +1,7 @@
 package items;
+
+import core.Ability;
+
 /**
  * Implement FlashLight subclass
  */
@@ -10,6 +13,8 @@ public class FlashLight extends Item {
      * @param weight - weight of the flashlight
      */
     public FlashLight(String brand,double weight) {
+
         super(brand, weight);
+        this.addCapability(Ability.ILLUMINATOR);
     }
 }

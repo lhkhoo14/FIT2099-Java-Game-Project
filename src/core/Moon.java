@@ -1,6 +1,8 @@
 package core;
 import java.util.ArrayList;
 import java.util.List;
+
+import areas.*;
 import items.*;
 import actions.*;
 
@@ -11,6 +13,7 @@ import actions.*;
 public class Moon implements ActionCapable {
     private CrewMember crewMember;
     private ArrayList<Item> items;
+    private ArrayList<Explorable> areas;
 
     /**
      * Creates Moon object with a CrewMember and ArrayList containing scattered items on the moon
@@ -18,10 +21,14 @@ public class Moon implements ActionCapable {
     public Moon() {
         this.crewMember = new CrewMember();
         this.items = new ArrayList<>();
+        this.areas = new ArrayList<>();
 
         //Setting up values
         items.add(new NutCan("IGA"));
         items.add(new TortillaPack("Coles"));
+        areas.add(new Factory());
+        areas.add(new Mansion());
+        areas.add(new MineShaft());
     }
 
     /**
@@ -50,6 +57,8 @@ public class Moon implements ActionCapable {
         }
     }
 
+
+
     /**
      * Return an ArrayList of allowable pack actions of each item on the moon
      * @return actions - ArrayList containing PackAction object of each item on the moon
@@ -60,6 +69,9 @@ public class Moon implements ActionCapable {
         for (Item item: this.items) {
             actions.add(item.getPackAction());
         }
+        for (Explorable explorable: this.areas) {
+            actions.addAll(explorable.allowableActions(crewMember));
+        }
         return actions;
     }
 
@@ -69,10 +81,9 @@ public class Moon implements ActionCapable {
      * ,shows a menu of allowable actions and asks for input
      */
     public void simulate() {
-        //while loop of five iterations
-        int iterations = 8;
+        //while loop while crew member is conscious
 
-        while (iterations > 0) {
+        while (crewMember.isConscious()) {
             List<Action> actions = new ArrayList<>();
             actions.addAll(this.allowableActions(crewMember));
             actions.addAll(crewMember.allowableActions(crewMember));
@@ -88,8 +99,7 @@ public class Moon implements ActionCapable {
 
             Action action = Menu.showMenu(actions, crewMember);
             System.out.println(action.execute(crewMember, this));
-
-            iterations--;  // decrease loop counter
         }
+        System.out.println(crewMember.getName() + " has ran out of energy and fainted.");
     }
 }
