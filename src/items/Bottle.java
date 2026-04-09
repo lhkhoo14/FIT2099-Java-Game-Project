@@ -33,7 +33,8 @@ public class Bottle extends Item implements Consumable {
      */
     @Override
     public String toString() {
-        return super.toString() + " , capacity: " + capacity + " L";
+
+        return super.toString() + " , capacity: " + String.format("%.2f", capacity) + " L";
     }
 
     /**

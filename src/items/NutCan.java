@@ -43,7 +43,7 @@ public class NutCan extends Item implements Consumable{
     public String consumedBy(CrewMember crewMember) {
         crewMember.increaseEnergyLevelBy(INCREASED_ENERGY_VALUE);
         crewMember.unpack(this);
-        return this.getSimpleName() + "is consumed by " + crewMember
+        return this.getSimpleName() + " is consumed by " + crewMember.getName()
                 + " and it increases the energy level by " + INCREASED_ENERGY_VALUE;
     }
 }
